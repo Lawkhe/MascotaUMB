@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link rel="icon" type="image/png" href="images/pet.png" />
+        <title>Mascotas - UMB</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery-3.4.0.min.js" type="text/javascript"></script>
+        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/funciones.js" type="text/javascript"></script>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+
+        <script>$(document).ready(init());</script>
+    </head>
+    <body>
+        <div class="col-lg-12 col-sm-12 col-xl-12 content-back">
+            <br><h2 class="title">Mascota UMB</h2><br>
+            <div class="row form-back">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4">
+                    <img src="images/pitbull.jpg" alt="" class="img-back"/>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 form-group">
+                    <input id="name" name="name" class="form-control" placeholder="Ingresa El Nombre De Tu Mascota"/>
+                    <div class="div-back col-lg-12 col-sm-12 col-xl-12">
+                        <!--<img class="back-img" src="images/mascotas.jpg" alt=""/>-->
+                        <img class="img-back" src="images/perro-back3.jpg" alt=""/>
+                    </div>
+                    <div class="div-back col-lg-12 col-sm-12 col-xl-12">
+                        <br>
+                        <input type="button" onclick="start()" value="Start" class="btn btn-primary"/>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4">
+                    <img src="images/chido.jpg" alt="" class="img-back"/>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="modal-start" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Mensaje</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Aun no le has colocado nombre ha tu mascota!!!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

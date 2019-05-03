@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <link rel="icon" type="image/png" href="images/pet.png" />
+        <title>Mascotas - UMB</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery-3.4.0.min.js" type="text/javascript"></script>
+        <script src="bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+        <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
+        <script src="js/funciones.js" type="text/javascript"></script>
+    </head>
+    <body>
+        <div class="col-lg-12 col-sm-12 col-xl-12 content-back">
+            <br><h2 class="name-mascota" id="name-mascota"></h2><br>
+            <div class="row form-back">
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4">
+                    <img src="images/plato.jpg" alt="" class="img-back"/>
+                    <div class="div-back col-lg-12 col-sm-12 col-xl-12">
+                        <br>
+                        <input type="button" onclick="start()" value="Alimentar" class="btn btn-primary"/>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 form-group">
+                    <div class="div-back col-lg-12 col-sm-12 col-xl-12">
+                        <img class="img-back" src="images/perro1.png" alt=""/>
+                    </div>
+                    <div class="div-back col-lg-12 col-sm-12 col-xl-12">
+                        <br>
+                        <input type="button" onclick="start()" value="Start" class="btn btn-primary"/>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4">
+                    <img src="images/acariciar.jpg" alt="" class="img-back"/>
+                    <div class="div-back col-lg-12 col-sm-12 col-xl-12">
+                        <br>
+                        <input type="button" onclick="start()" value="Start" class="btn btn-primary"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>$(document).ready(initDos());</script>
+    </body>
+</html>
