@@ -5,6 +5,9 @@
  */
 
 var name = "";
+var Alimento = 0;
+var Caricias = 0;
+
 function init(){
     name = "";
     console.log("Hola esclavos");
@@ -31,4 +34,14 @@ function start(){
         $('#modal-start').modal('show');
         console.log("No tiene nombre");
     }
+}
+
+function alimentar(){
+    $('#mascota').attr('src', 'images/perro1.png');
+    $('#mascota').attr('class', 'img-mascota-change');
+}
+
+function acariciar(){
+    $('#mascota').attr('src', 'images/MaxFeliz.png');
+    $('#mascota').attr('class', 'img-mascota-change');
 }
