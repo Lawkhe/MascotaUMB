@@ -5,7 +5,9 @@
  */
 
 var name = "";
-var Alimento = 0;
+var EstadoAnimo = 0;
+var EstadoFisico = 0;
+var Alimento = 3;
 var Caricias = 0;
 
 function init(){
@@ -20,6 +22,10 @@ function initDos(){
     var asd = $('#name-mascota').attr('id');
     console.log(asd);
     console.log(name);
+    setInterval(function(){
+        console.log("Intervalo");
+        EstadoMascota();
+    },10000);
 }
 
 function start(){
@@ -36,12 +42,40 @@ function start(){
     }
 }
 
+function EstadoMascota(){
+    if(Alimento == 0){
+        $('#mascota').attr('src', 'images/Muerto.jpg');
+        setTimeout(function(){
+            $('#modal-reset').modal('show');
+        },4000);
+    }
+    Alimento = Alimento - 1; 
+}
+
 function alimentar(){
-    $('#mascota').attr('src', 'images/perro1.png');
-    $('#mascota').attr('class', 'img-mascota-change');
+    if(Alimento > 4){
+        console.log("No lo puedes alinmentar más");
+        Alimento = Alimento + 1;
+        $('#mascota').attr('src', 'images/perro1.png');
+        $('#mascota').attr('class', 'img-mascota-change');
+    }
 }
 
 function acariciar(){
     $('#mascota').attr('src', 'images/MaxFeliz.png');
+    $('#mascota').attr('class', 'img-mascota-change');
+}
+
+function bañar(){
+    $('#mascota').attr('src', 'images/PerrroBañando.jpg');
+    $('#mascota').attr('class', 'img-mascota-change');
+    setTimeout(function(){
+        $('#mascota').attr('src', 'images/Bañera.jpg');
+        EstadoMascota();
+    },3000);
+}
+
+function pasear(){
+    $('#mascota').attr('src', 'images/BoltPasear.png');
     $('#mascota').attr('class', 'img-mascota-change');
 }

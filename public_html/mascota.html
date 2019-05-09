@@ -23,8 +23,11 @@ and open the template in the editor.
                 <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4">
                     <img src="images/plato.jpg" alt="" class="img-back"/>
                     <div class="div-back col-lg-12 col-sm-12 col-xl-12">
-                        <br>
                         <input type="button" onclick="alimentar()" value="Alimentar" class="btn btn-primary"/>
+                    </div>
+                    <img src="images/lavar.jpg" alt="" class="img-back"/>
+                    <div class="div-back col-lg-12 col-sm-12 col-xl-12">
+                        <input type="button" onclick="bañar()" value="Bañar" class="btn btn-primary"/>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4 form-group">
@@ -35,8 +38,30 @@ and open the template in the editor.
                 <div class="col-lg-4 col-sm-4 col-md-4 col-xl-4">
                     <img src="images/acariciar.jpg" alt="" class="img-back"/>
                     <div class="div-back col-lg-12 col-sm-12 col-xl-12">
-                        <br>
-                        <input type="button" onclick="acariciar()" value="Start" class="btn btn-primary"/>
+                        <input type="button" onclick="acariciar()" value="Acariciar" class="btn btn-primary"/>
+                    </div>
+                    <img src="images/pasear.jpg" alt="" class="img-back"/>
+                    <div class="div-back col-lg-12 col-sm-12 col-xl-12">
+                        <input type="button" onclick="pasear()" value="Pasear" class="btn btn-primary"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="modal-reset" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Mensaje</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Tu Mascota ha Muerto!!!!</p>
+                    </div>
+                    <div class="modal-footer">
+                        <!--<button type="button" class="btn btn-primary">Save changes</button>-->
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
