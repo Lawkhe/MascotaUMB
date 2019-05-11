@@ -8,7 +8,10 @@ var name = "";
 var EstadoAnimo = 0;
 var EstadoFisico = 0;
 var Alimento = 3;
-var Caricias = 0;
+var Bañar = 3;
+var Pasear = 3;
+var Caricias = 3;
+var Point = 1;
 
 function init(){
     name = "";
@@ -43,30 +46,37 @@ function start(){
 }
 
 function EstadoMascota(){
+    console.log("Alimento: " + Alimento + " Baños: " + Bañar +" Caricias: " + Caricias + " Paseos: " + Pasear);
     if(Alimento == 0){
         $('#mascota').attr('src', 'images/Muerto.jpg');
         setTimeout(function(){
             $('#modal-reset').modal('show');
         },4000);
     }
-    Alimento = Alimento - 1; 
+    Alimento = Alimento - Point; 
+    Caricias = Caricias - Point;
+    Bañar = Bañar - Point;
+    Pasear = Pasear + Point; 
 }
 
 function alimentar(){
     if(Alimento > 4){
         console.log("No lo puedes alinmentar más");
-        Alimento = Alimento + 1;
+    }else{
+        Alimento = Alimento + Point;
         $('#mascota').attr('src', 'images/perro1.png');
         $('#mascota').attr('class', 'img-mascota-change');
     }
 }
 
 function acariciar(){
+    Caricias = Caricias + Point;
     $('#mascota').attr('src', 'images/MaxFeliz.png');
     $('#mascota').attr('class', 'img-mascota-change');
 }
 
 function bañar(){
+    Bañar = Bañar + Point;
     $('#mascota').attr('src', 'images/PerrroBañando.jpg');
     $('#mascota').attr('class', 'img-mascota-change');
     setTimeout(function(){
@@ -76,6 +86,11 @@ function bañar(){
 }
 
 function pasear(){
+    Pasear = Pasear + Point; 
     $('#mascota').attr('src', 'images/BoltPasear.png');
     $('#mascota').attr('class', 'img-mascota-change');
+}
+
+function inicio(){
+    window.location = 'index.html';
 }
