@@ -5,21 +5,16 @@
  */
 
 var name = "";
-var EstadoAnimo = 0;
-var EstadoFisico = 0;
-var Alimento = 3;
-var Bañar = 3;
-var Pasear = 3;
-var Caricias = 3;
+
+var EstadoAnimo = 1;
+var EstadoFisico = 2;
 var Point = 1;
 
 function init(){
     name = "";
-    console.log("Hola esclavos");
 }
 
 function initDos(){
-    console.log("Hola esclavos");
     name = localStorage.getItem("nombreM");
     $('#name-mascota').append(name);
     var asd = $('#name-mascota').attr('id');
@@ -27,7 +22,7 @@ function initDos(){
     console.log(name);
     setInterval(function(){
         console.log("Intervalo");
-        EstadoMascota();
+        tiempo();
     },10000);
 }
 
@@ -45,50 +40,115 @@ function start(){
     }
 }
 
+function tiempo(){  
+    EstadoFisico = EstadoFisico - Point; 
+    EstadoAnimo = EstadoAnimo - Point;
+    EstadoMascota();
+}
+
 function EstadoMascota(){
-    console.log("Alimento: " + Alimento + " Baños: " + Bañar +" Caricias: " + Caricias + " Paseos: " + Pasear);
-    if(Alimento == 0){
+    $('#mascota').removeClass('img-mascota');
+    $('#mascota').addClass('img-change');
+    setTimeout(function(){
+        $('#mascota').removeClass('img-change');
+        $('#mascota').addClass('img-mascota');
+    },1000);   
+    console.log("EstadoFisico: " + EstadoFisico + " EstadoAnimo: " + EstadoAnimo);
+    if(EstadoFisico <= 0){
         $('#mascota').attr('src', 'images/Muerto.jpg');
         setTimeout(function(){
             $('#modal-reset').modal('show');
         },4000);
+    }else{
+        if(EstadoFisico <= 1 && EstadoAnimo <= 1){
+            $('#mascota').attr('src', 'images/Mascota/Flaco1.png');
+        } else if(EstadoFisico <= 1 && EstadoAnimo == 2){
+            $('#mascota').attr('src', 'images/Mascota/Flaco2.png');
+        } else if(EstadoFisico <= 1 && EstadoAnimo >= 3){
+            $('#mascota').attr('src', 'images/Mascota/Flaco3.png');
+        }  else if(EstadoFisico == 2 && EstadoAnimo <= 1){
+            $('#mascota').attr('src', 'images/Mascota/Normal1.png');
+        }  else if(EstadoFisico == 2 && EstadoAnimo == 2){
+            $('#mascota').attr('src', 'images/Mascota/Normal2.png');
+        }  else if(EstadoFisico == 2 && EstadoAnimo >= 3){
+            $('#mascota').attr('src', 'images/Mascota/Normal3.png');
+        }  else if(EstadoFisico >= 3 && EstadoAnimo <= 1){
+            $('#mascota').attr('src', 'images/Mascota/Gordo1.png');
+        }  else if(EstadoFisico >= 3 && EstadoAnimo == 2){
+            $('#mascota').attr('src', 'images/Mascota/Gordo2.png');
+        }  else if(EstadoFisico >= 3 && EstadoAnimo >= 3){
+            $('#mascota').attr('src', 'images/Mascota/Gordo3.png');
+        }
     }
-    Alimento = Alimento - Point; 
-    Caricias = Caricias - Point;
-    Bañar = Bañar - Point;
-    Pasear = Pasear + Point; 
 }
 
 function alimentar(){
-    if(Alimento > 4){
-        console.log("No lo puedes alinmentar más");
-    }else{
-        Alimento = Alimento + Point;
-        $('#mascota').attr('src', 'images/perro1.png');
-        $('#mascota').attr('class', 'img-mascota-change');
+    $('.accion').prop('disabled',true);
+    setTimeout(function(){
+        $('.accion').prop('disabled',false);
+    },2500);
+    $('#efecto').attr('src', 'images/croquetas.png');
+    $('#efecto').removeClass('hidden');
+    setTimeout(function(){
+        if(EstadoFisico > 3){
+            console.log("No lo puedes alinmentar más");
+        }else{
+            EstadoFisico = EstadoFisico + Point; 
+        }
+        EstadoMascota();
+        setTimeout(function(){
+            $('#efecto').addClass('hidden');
+        },2000);
+    },2000);
+}
+
+function animo(){
+    if(EstadoAnimo < 5){
+        EstadoAnimo = EstadoAnimo + Point;
     }
+    EstadoMascota();
 }
 
 function acariciar(){
-    Caricias = Caricias + Point;
-    $('#mascota').attr('src', 'images/MaxFeliz.png');
-    $('#mascota').attr('class', 'img-mascota-change');
+    Block();
+    $('#efecto').attr('src', 'images/manitos.png');
+    $('#efecto').removeClass('hidden');
+    setTimeout(function(){
+        animo();
+        setTimeout(function(){
+            $('#efecto').addClass('hidden');
+        },2000);
+    },2000);
 }
 
 function bañar(){
-    Bañar = Bañar + Point;
-    $('#mascota').attr('src', 'images/PerrroBañando.jpg');
-    $('#mascota').attr('class', 'img-mascota-change');
+    Block();
+    $('#efecto').attr('src', 'images/burbujas.png');
+    $('#efecto').removeClass('hidden');
     setTimeout(function(){
-        $('#mascota').attr('src', 'images/Bañera.jpg');
-        EstadoMascota();
-    },3000);
+        animo();
+        setTimeout(function(){
+            $('#efecto').addClass('hidden');
+        },2000);
+    },2000);
 }
 
 function pasear(){
-    Pasear = Pasear + Point; 
-    $('#mascota').attr('src', 'images/BoltPasear.png');
-    $('#mascota').attr('class', 'img-mascota-change');
+    Block();
+    $('#efecto-correr').removeClass('hidden');
+    setTimeout(function(){
+        animo();
+        setTimeout(function(){
+            $('#efecto-correr').addClass('hidden');
+        },2000);
+    },2000);
+}
+
+function Block(){
+    $('.accion').prop('disabled',true);
+    setTimeout(function(){
+        $('.accion').prop('disabled',false);
+    },2000);
 }
 
 function inicio(){
